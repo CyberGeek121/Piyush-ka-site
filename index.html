@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Bhardwaj</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <header>
+            <h1>Piyush Bhardwaj</h1>
+            <h2>Welcome to my personal website!</h2>
+        </header>
+
+        <section id="about">
+            <h3>About Me</h3>
+            <p>I'm a 15-year-old lad from New Delhi who was brought and raised in Haryana.</p>
+            <!-- You can extend this paragraph with more details about yourself -->
+        </section>
+
+        <section id="hobbies-section">
+            <button id="hobbies-button">My Hobbies</button>
+        </section>
+
+        <!-- Hobbies Modal -->
+        <div id="hobbies-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-hobbies">&times;</span>
+                <h3>My Hobbies</h3>
+                <ul class="hobbies-list">
+                    <li class="hobby-item" data-detail="Geopolitics involves the study of the effects of geography on international politics and relations. I enjoy analyzing global events and understanding the underlying geopolitical strategies.">Geopolitics</li>
+                    <li class="hobby-item" data-detail="Politics is the process by which groups of people make decisions. I'm passionate about understanding political systems and participating in discussions about policy and governance.">Politics</li>
+                    <li class="hobby-item" data-detail="Artificial Intelligence fascinates me as it bridges the gap between technology and human intelligence. I love experimenting with AI models and staying updated with the latest advancements.">Artificial Intelligence</li>
+                    <li class="hobby-item" data-detail="Web Development allows me to create and design websites. I enjoy coding, designing user interfaces, and making interactive web applications.">Web Development</li>
+                    <li class="hobby-item" data-detail="Science is a broad field that satisfies my curiosity about how the world works. I enjoy reading scientific journals and conducting simple experiments.">Science</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Detailed Hobby Modal -->
+        <div id="detail-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-detail">&times;</span>
+                <h3 id="detail-title">Detail</h3>
+                <p id="detail-text">Detailed information about the hobby.</p>
+            </div>
+        </div>
+       
+        
+
+        <!-- Minigames Section -->
+        <section id="minigames-section">
+            <h3>Minigames</h3>
+            <div class="games-container">
+                <div class="game-card">
+                    <h4>Color Clicker</h4>
+                    <button class="game-button" data-game="color-clicker">Play</button>
+                </div>
+                <div class="game-card">
+                    <h4>Trivia Quiz</h4>
+                    <button class="game-button" data-game="trivia-quiz">Play</button>
+                </div>
+                <div class="game-card">
+                    <h4>Reaction Tester</h4>
+                    <button class="game-button" data-game="reaction-tester">Play</button>
+                </div>
+                <div class="game-card">
+                    <h4>Typing Speed Test</h4>
+                    <button class="game-button" data-game="typing-speed-test">Play</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Minigame Modals -->
+        <!-- Color Clicker Modal -->
+        <div id="color-clicker-modal" class="game-modal">
+            <div class="game-modal-content">
+                <span class="close game-close">&times;</span>
+                <h3>Color Clicker</h3>
+                <label for="color-clicker-timer">Select Timer:</label>
+                <select id="color-clicker-timer">
+                    <option value="5">5 Seconds</option>
+                    <option value="10" selected>10 Seconds</option>
+                    <option value="30">30 Seconds</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <input type="number" id="custom-timer-input" placeholder="Enter seconds" style="display: none;" min="1">
+                <p>Click the button as many times as you can within the selected time!</p>
+                <button id="color-clicker-button">Click Me!</button>
+                <p>Clicks Per Second (CPS): <span id="color-clicker-cps">0</span></p>
+                <p>High CPS: <span id="color-clicker-highscore">0</span></p>
+            </div>
+        </div>
+
+        <!-- Trivia Quiz Modal -->
+        <div id="trivia-quiz-modal" class="game-modal">
+            <div class="game-modal-content">
+                <span class="close game-close">&times;</span>
+                <h3>Trivia Quiz</h3>
+                <div id="quiz-container">
+                    <p id="quiz-question">Fetching question...</p>
+                    <div id="quiz-options">
+                        <!-- Options will be generated here -->
+                    </div>
+                    <button id="retry-quiz" style="display:none;">Retry</button>
+                    <button id="next-question" style="display:none;">Next</button>
+                </div>
+                <p>Score: <span id="quiz-score">0</span></p>
+                <p>Streak: <span id="quiz-streak">0</span></p>
+                <p>High Score: <span id="quiz-highscore">0</span></p>
+            </div>
+        </div>
+
+        <!-- Reaction Tester Modal -->
+        <div id="reaction-tester-modal" class="game-modal">
+            <div class="game-modal-content">
+                <span class="close game-close">&times;</span>
+                <h3>Reaction Tester</h3>
+                <p id="reaction-instruction">Wait for the color to change, then click as fast as you can!</p>
+                <div id="reaction-box" class="reaction-box">Wait...</div>
+                <p>Reaction Time: <span id="reaction-time">0</span> ms</p>
+                <p>Best Time: <span id="reaction-besttime">0</span> ms</p>
+                <p id="reaction-funfact"></p>
+            </div>
+        </div>
+
+        <!-- Typing Speed Test Modal -->
+        <div id="typing-speed-test-modal" class="game-modal">
+            <div class="game-modal-content">
+                <span class="close game-close">&times;</span>
+                <h3>Typing Speed Test</h3>
+                <p id="typing-text">Loading text...</p>
+                <textarea id="typing-input" rows="4" placeholder="Start typing here..." disabled></textarea>
+                <button id="typing-start">Start Test</button>
+                <button id="typing-submit" style="display:none;">Submit</button>
+                <p>Time Left: <span id="typing-timer">10</span> seconds</p>
+                <p>Words Per Minute (WPM): <span id="typing-wpm">0</span></p>
+                <p>Accuracy: <span id="typing-accuracy">0</span>%</p>
+                <p>High WPM: <span id="typing-highwpm">0</span></p>
+            </div>
+        </div>
+
+        <!-- Contact Me Section -->
+        <section id="contact">
+            <h3>Contact Me</h3>
+            <div class="social-media">
+                <a href="https://github.com/yourhandle" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/yourhandle" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:yourname@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+        <!-- High Scores Section -->
+        <section id="high-scores">
+            <h3>High Scores</h3>
+            <div class="scores-container">
+                <div class="score-card">
+                    <h4>Color Clicker</h4>
+                    <p>High CPS: <span id="hs-color-clicker">0</span></p>
+                </div>
+                <div class="score-card">
+                    <h4>Trivia Quiz</h4>
+                    <p>High Score: <span id="hs-trivia-quiz">0</span></p>
+                </div>
+                <div class="score-card">
+                    <h4>Reaction Tester</h4>
+                    <p>Best Time: <span id="hs-reaction-tester">0</span> ms</p>
+                </div>
+                <div class="score-card">
+                    <h4>Typing Speed Test</h4>
+                    <p>High WPM: <span id="hs-typing-speed-test">0</span></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Particles.js library for background effects -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Link to external JS -->
+
+</body>
+</html>
